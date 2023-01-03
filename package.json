@@ -1,17 +1,17 @@
 {
-  "name": "material-kit-2-react",
-  "version": "2.0.0",
+  "name": "agc-website",
+  "version": "1.0.0",
   "private": true,
-  "author": "Creative Tim",
-  "license": "See license in https://www.creative-tim.com/license",
+  "author": "Aspen Grove Collective",
+  "license": "MIT",
   "description": "React version of Material Kit 2 by Creative Tim",
-  "homepage": "https://demos.creative-tim.com/material-kit-react/#/",
+  "homepage": "https://aspengrovecollective.github.io/agcwebsite",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/ct-material-kit-react/issues"
+    "url": ""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/ct-material-kit-react.git"
+    "url": "git+https://github.com/aspengrovecollective/agcwebsite.git"
   },
   "engines": {
     "node": "14 || 15 || 16",
@@ -44,6 +44,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "deploy" : "npm run build && gh-pages -d dist",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
@@ -74,6 +75,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
+    "gh-pages": "^4.0.0",
     "prettier": "2.8.1"
   }
 }
