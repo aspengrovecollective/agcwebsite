@@ -44,7 +44,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy" : "npm run build && gh-pages -d build",
+    "deploy": "npm run build && gh-pages -d build",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
@@ -76,6 +76,7 @@
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
     "gh-pages": "^4.0.0",
-    "prettier": "2.8.1"
+    "prettier": "2.8.1",
+    "serve": "^14.1.2"
   }
 }

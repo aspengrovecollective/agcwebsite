@@ -34,20 +34,16 @@ import logoImage from 'assets/images/logos/agc-logo.png';
 function Home() {
     return (
         <>
-            <MKBox
-                minHeight="20vh"
-                maxHeight="40vh"
-                sx={{
-                    display: 'grid',
-                    placeItems: 'center',
-                }}
-                width="100%"
-                style={{ margin: '0 auto' }}
-            >
+            <MKBox minHeight="20vh" width="100%" style={{ padding: '10px' }}>
                 <img
                     src={`${logoImage}`}
                     alt="Aspen Grove Collective Logo"
-                    style={{ maxWidth: '100%', maxHeight: '80%' }}
+                    style={{
+                        display: 'block',
+                        maxWidth: '100%',
+                        maxHeight: '80%',
+                        margin: '0 auto',
+                    }}
                 />
             </MKBox>
             <MKBox
