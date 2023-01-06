@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.eff9bd73.js",
+    "main.js": "/static/js/main.5d7b760e.js",
     "static/media/rotating-card-bg-front.jpeg": "/static/media/rotating-card-bg-front.bdcdfadc0dacb9bc5f23.jpeg",
     "static/media/macbook.png": "/static/media/macbook.e0a8c5d5cc02d71b6d86.png",
     "static/media/bg-coworking.jpeg": "/static/media/bg-coworking.06bccc47fe6ae5366bf8.jpeg",
@@ -15,11 +15,11 @@
     "static/media/bg-about-us.jpg": "/static/media/bg-about-us.cf9a123e2a3d371d53da.jpg",
     "static/media/testimonial-6-2.jpg": "/static/media/testimonial-6-2.21f2048f0b89919090f0.jpg",
     "static/media/testimonial-6-3.jpg": "/static/media/testimonial-6-3.d35bef0d65354442d063.jpg",
+    "static/media/agc-logo.svg": "/static/media/agc-logo.0f52af55ea107b309798078bdfccd074.svg",
     "static/media/team-1.jpg": "/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
     "static/media/bruce-mars.jpg": "/static/media/bruce-mars.8a606c4a6dab54c9ceff.jpg",
     "static/media/team-5.jpg": "/static/media/team-5.d59ab7b9f95f1169cf83.jpg",
     "static/media/team-2.jpg": "/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
-    "static/media/agc-logo.png": "/static/media/agc-logo.3225ce645bee7d0cf986.png",
     "static/media/team-3.jpg": "/static/media/team-3.0ef0be95e6850814c79e.jpg",
     "static/media/ivana-square.jpg": "/static/media/ivana-square.f7bc23b269d1d2509c82.jpg",
     "static/media/ivana-squares.jpg": "/static/media/ivana-squares.3c555b856b04c2ab921b.jpg",
@@ -34,9 +34,9 @@
     "static/media/logo-nasa.svg": "/static/media/logo-nasa.b4e79ad93e48f27643c48621609ba18b.svg",
     "static/media/logo-netflix.svg": "/static/media/logo-netflix.41468e1be7ec61f28c77c2d4da86083e.svg",
     "index.html": "/index.html",
-    "main.eff9bd73.js.map": "/static/js/main.eff9bd73.js.map"
+    "main.5d7b760e.js.map": "/static/js/main.5d7b760e.js.map"
   },
   "entrypoints": [
-    "static/js/main.eff9bd73.js"
+    "static/js/main.5d7b760e.js"
   ]
 }
