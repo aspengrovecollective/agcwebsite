@@ -29,7 +29,7 @@ import MKBox from 'components/MKBox';
 // import footerRoutes from 'footer.routes';
 
 // Images
-import logoImage from 'assets/images/logos/agc-logo.png';
+import logoImage from 'assets/images/logos/agc-logo.svg';
 
 function Home() {
     return (
@@ -41,7 +41,7 @@ function Home() {
                     style={{
                         display: 'block',
                         maxWidth: '100%',
-                        maxHeight: '80%',
+                        height: '30vh',
                         margin: '0 auto',
                     }}
                 />
