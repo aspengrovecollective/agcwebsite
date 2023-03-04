@@ -1,0 +1,249 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.fffForm {
+    width: 640px;
+    margin: 0 auto;
+}
+
+/* QUESTION */
+
+.question {
+    padding: 24px;
+    margin: 10px;
+    background-color: #101010;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    font-family: Roboto;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 12pt;
+    line-height: 1.5;
+    letter-spacing: 0;
+    word-break: break-word;
+}
+
+.question > * {
+    margin-bottom: 16px;
+}
+
+.question > div > input, .question > div > input ~ label {
+    color: #AAAAAA;
+    font-size: 11pt;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.question div ::placeholder {
+    color: #656565;
+    font-weight: 400;
+    font-size: 11pt;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.question > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.options {}
+
+input:focus { outline:none; }
+
+/* RADIO INPUT */
+
+input[type="radio"] {
+    appearance: none;
+    margin: 0;
+    color: #AAAAAA;
+    background-color: transparent;
+    font: inherit;
+    width: 20px;
+    height: 20px;
+    border: 0.15em solid #777777;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 0px rgba(150, 150, 150, 0.2);
+    /*transform: translateY(-0.075em);*/
+}
+
+input[type="radio"]:hover {
+    -webkit-animation:radioHighlighter 0.2s ease-in;
+    -moz-animation:radioHighlighter 0.2s ease-in;
+    animation:radioHighlighter 0.2s ease-in;
+    box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2);
+}
+
+input[type="radio"]:checked:hover {
+    box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2);
+}
+
+input[type="radio"]:active {
+    -webkit-animation:radioHighlighterActive 0.1s ease-out;
+    -moz-animation:radioHighlighterActive 0.1s ease-out;
+    animation:radioHighlighterActive 0.1s ease-out;
+    box-shadow: 0 0 0 9px rgba(200, 200, 200, 0.2);
+}
+
+input[type="radio"]:checked {
+    color: currentColor;
+    background-color: #AAAAAA;
+}
+
+input[type="radio"]:checked:before {
+    color: currentColor;
+    background-color: transparent;
+    content: " ";
+    position: absolute;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #101010;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+/* TEXT INPUT */
+input[type="text"] {
+    background-color: transparent;
+}
+
+.textInputWrapper {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.textInput {
+    font-size: 14px;
+    color: #E0E0E0;
+    padding: .125em 0;
+    display:flex;
+    border:none;
+    width: 300px;
+    border-bottom:1px solid #777777;
+}
+
+.otherInputText {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* OTHER */
+
+.otherInputRadio {
+    display: flex;
+    flex-shrink: 0;
+    font-size:18px;
+    color: #777777;
+}
+
+.otherInputRadio:checked {
+    color: #656565;
+}
+
+.otherTextWrapper {
+    display: inline-flex;
+    flex-grow: 1;
+    margin-left: 0.75em;
+    position: relative;
+}
+
+/* LABEL ======================================= */
+.textInputLabel {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 0.75em;
+    pointer-events:none;
+}
+
+input[type="radio"]:checked+label {
+    color: #E0E0E0;
+    transition: 0.2s;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{
+    position: absolute;
+    width: 300px;
+    bottom: 0;
+}
+.barOther {
+    position: absolute;
+    width: 100%;
+}
+.bar:before, .bar:after 	{
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: #E0E0E0;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%;
+}
+
+/* active state */
+.textInput:focus ~ .bar:before, .textInput:focus ~ .bar:after {
+    width:50%;
+}
+
+
+@-webkit-keyframes radioHighlighter {
+    from { box-shadow: 0 0 0 0px rgba(150, 150, 150, 0.2); }
+    to 	{ box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2); }
+}
+@-moz-keyframes radioHighlighter {
+    from { box-shadow: 0 0 0 0px rgba(150, 150, 150, 0.2); }
+    to 	{ box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2); }
+}
+@keyframes radioHighlighter {
+    from { box-shadow: 0 0 0 0px rgba(150, 150, 150, 0.2); }
+    to 	{ box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2); }
+}
+
+@-webkit-keyframes radioHighlighterActive {
+    from { box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2); }
+    to 	{ box-shadow: 0 0 0 9px rgba(200, 200, 200, 0.2); }
+}
+@-moz-keyframes radioHighlighterActive {
+    from { box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2); }
+    to 	{ box-shadow: 0 0 0 9px rgba(200, 200, 200, 0.2); }
+}
+@keyframes radioHighlighterActive {
+    from { box-shadow: 0 0 0 9px rgba(150, 150, 150, 0.2); }
+    to 	{ box-shadow: 0 0 0 9px rgba(200, 200, 200, 0.2); }
+}
+
+button {
+    background-color: #656565;
+    font-family: Google Sans;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 36px;
+    padding: 0 24px;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #777777;
+}
+
+button:active {
+    background-color: #AAAAAA;
+}

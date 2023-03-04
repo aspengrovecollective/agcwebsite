@@ -1,0 +1,69 @@
+{
+  "formId": "1L17CxYc9zGky87A1MC1iQloIWXThac2o0zZcZ3wDNvo",
+  "actionUrl": "https://forms.gle/iex4vomHsvYPtuw46",
+  "questions": [
+    {
+      "text": "Please post __PRIVATE__ SoundCloud link here.",
+      "type": "text",
+      "name": "entry.1227501293",
+      "required": true
+    },
+    {
+      "text": "Are comments enabled and viewable?",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "name": "entry.1845839064",
+      "required": true
+    },
+    {
+      "text": "In which __area__ would you like your feedback focus to be? (Pick one)",
+      "type": "radio",
+      "options": [
+        "General Feedback (Feedbacking Artists Choice)",
+        "Songwriting and Composition",
+        "Sound Design",
+        "Mixing and Mastering"
+      ],
+      "other": {
+        "enabled": true,
+        "text": "Other:"
+      },
+      "name": "entry.1635582605",
+      "required": true
+    },
+    {
+      "text": "How many artists would you like to review your track?",
+      "type": "radio",
+      "options": [
+        "1 - 3",
+        "4 - 6"
+      ],
+      "name": "entry.29429379",
+      "required": true
+    },
+    {
+      "text": "Which part of your track are you most proud of, so far?",
+      "type": "text",
+      "name": "entry.19278685",
+      "required": true
+    },
+    {
+      "text": null,
+      "type": "hidden",
+      "name": "entry.1845839064_sentinel"
+    },
+    {
+      "text": null,
+      "type": "hidden",
+      "name": "entry.1635582605_sentinel"
+    },
+    {
+      "text": null,
+      "type": "hidden",
+      "name": "entry.29429379_sentinel"
+    }
+  ]
+}
