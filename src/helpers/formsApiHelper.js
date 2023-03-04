@@ -1,7 +1,7 @@
 const google = require('@googleapis/forms');
 const fffFormConfig = require('../config/fffFormConfig.json');
 
-export default getForm = async () => {
+export default async () => {
     const auth = new google.auth.GoogleAuth({
         keyFilename: '../private/agc-website-373622-2d2c395346c1.json',
         // Scopes can be specified either as an array or as a single, space-delimited string.

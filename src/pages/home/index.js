@@ -39,7 +39,7 @@ import logoImage from 'assets/images/logos/agc-logo.svg';
 import { useEffect } from 'react';
 
 // getForm
-import getForm from '../../helpers/formsApiHelper';
+// import getForm from '../../helpers/formsApiHelper';
 
 const fffFormConfig = require('../../config/fffFormConfig.json');
 
@@ -165,7 +165,7 @@ function FFFForm() {
 }
 
 function Home() {
-    getForm();
+    // getForm();
     useEffect(() => {
         const form = document.querySelector('#fffForm'); // form element
 

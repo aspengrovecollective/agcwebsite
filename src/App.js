@@ -43,7 +43,6 @@ export default function App() {
             <Routes>
                 {getRoutes(routes)}
                 <Route path="" element={<Home />} />
-                <Route path="/presentation" element={<Presentation />} />
             </Routes>
         </ThemeProvider>
     );
