@@ -14,24 +14,24 @@ Coded by www.creative-tim.com
 */
 
 // Material Kit 2 React helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from 'assets/theme/functions/pxToRem';
 
 export default {
-  defaultProps: {
-    fontSize: "inherit",
-  },
-
-  styleOverrides: {
-    fontSizeInherit: {
-      fontSize: "inherit !important",
+    defaultProps: {
+        fontSize: 'inherit',
     },
 
-    fontSizeSmall: {
-      fontSize: `${pxToRem(20)} !important`,
-    },
+    styleOverrides: {
+        fontSizeInherit: {
+            fontSize: 'inherit !important',
+        },
 
-    fontSizeLarge: {
-      fontSize: `${pxToRem(36)} !important`,
+        fontSizeSmall: {
+            fontSize: `${pxToRem(20)} !important`,
+        },
+
+        fontSizeLarge: {
+            fontSize: `${pxToRem(36)} !important`,
+        },
     },
-  },
 };

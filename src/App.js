@@ -9,11 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 // Material Kit 2 React themes
 import theme from 'assets/theme';
-import Presentation from 'layouts/pages/presentation';
 import Home from 'pages/home';
-
-// Material Kit 2 React routes
-import routes from 'routes';
 
 export default function App() {
     const { pathname } = useLocation();
@@ -24,26 +20,11 @@ export default function App() {
         document.scrollingElement.scrollTop = 0;
     }, [pathname]);
 
-    const getRoutes = (allRoutes) =>
-        allRoutes.map((route) => {
-            if (route.collapse) {
-                return getRoutes(route.collapse);
-            }
-
-            if (route.route) {
-                return <Route exact path={route.route} element={route.component} key={route.key} />;
-            }
-
-            return null;
-        });
-
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <Routes>
-                {getRoutes(routes)}
-                <Route path="" element={<Home />} />
-                <Route path="/presentation" element={<Presentation />} />
+                <Route path="/" element={<Home />} />
             </Routes>
         </ThemeProvider>
     );

@@ -1,0 +1,18 @@
+{
+  "name": "react-express-app",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@googleapis/forms": "^2.0.0",
+    "debug": "^4.3.4",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0"
+  }
+}
