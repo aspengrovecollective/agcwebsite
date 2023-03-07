@@ -1,5 +1,6 @@
+node_modules/
 src/assets/theme/
 src/examples/
-src/components/MK*
-src/layouts
-node_modules/
+src/components/
+server/private/
+.env
