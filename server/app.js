@@ -14,10 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, 'build')));
 app.disable('etag');
 
-app.get('/api/get-form', (req, res) => {
-    res.json(getForm());
+app.get('/api/get-form', async (req, res) => {
+    res.json(await getForm());
 });
 app.get('*', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
     res.sendFile('build/index.html', { root: __dirname });
 });
 

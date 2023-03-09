@@ -1,23 +1,30 @@
-import Question from 'pages/home/components/question';
+import FormItem from 'pages/home/components/formItem';
 
 export default function FFFForm(props) {
-    const { googleFormData, submitForm } = props;
-    const { responderUri, items: questions } = googleFormData.info;
-    const questionsHtml = questions.map((question, i) => (
-        <Question question={question} i={i} key={question.name} />
+    const {
+        googleFormData: { info, items },
+        submitForm,
+    } = props;
+    const { description, title, responderUri } = info;
+    const formItemsHtml = items.map((item, i) => (
+        <FormItem item={item} i={i} itemId={item.itemId} />
     ));
     return (
-        <form
-            method="post"
-            id="fffForm"
-            action={responderUri}
-            onSubmit={submitForm}
-            className="fffForm"
-        >
-            {questionsHtml}
-            <button type="submit" value="Submit" style={{ margin: '10px' }}>
-                Submit
-            </button>
-        </form>
+        <>
+            <div>{title}</div>
+            <div>{description}</div>
+            <form
+                method="post"
+                id="fffForm"
+                action={responderUri}
+                onSubmit={submitForm}
+                className="fffForm"
+            >
+                {formItemsHtml}
+                <button type="submit" value="Submit" style={{ margin: '10px' }}>
+                    Submit
+                </button>
+            </form>
+        </>
     );
 }

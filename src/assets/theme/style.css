@@ -9,9 +9,9 @@
     margin: 0 auto;
 }
 
-/* QUESTION */
+/* FORM ITEM */
 
-.question {
+.formItem {
     padding: 24px;
     margin: 10px;
     background-color: #101010;
@@ -26,18 +26,18 @@
     word-break: break-word;
 }
 
-.question > * {
+.formItem > * {
     margin-bottom: 16px;
 }
 
-.question > div > input, .question > div > input ~ label {
+.formItem > div > input, .formItem > div > input ~ label {
     color: #AAAAAA;
     font-size: 11pt;
     line-height: 1.5;
     letter-spacing: 0;
 }
 
-.question div ::placeholder {
+.formItem div ::placeholder {
     color: #656565;
     font-weight: 400;
     font-size: 11pt;
@@ -45,7 +45,7 @@
     letter-spacing: 0;
 }
 
-.question > *:last-child {
+.formItem > *:last-child {
     margin-bottom: 0 !important;
 }
 

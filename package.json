@@ -83,6 +83,9 @@
       "last 1 safari version"
     ]
   },
+  "nodemonConfig": {
+    "verbose": true
+  },
   "scripts": {
     "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
     "start-backend": "nodemon server/server.js",

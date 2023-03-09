@@ -38,7 +38,6 @@ import 'assets/theme/style.css';
 import logoImage from 'assets/images/logos/agc-logo.svg';
 
 import FFFForm from 'pages/home/components/fffForm';
-import Question from 'pages/home/components/question';
 
 const submitForm = require('pages/home/helpers/submitFFFForm');
 
@@ -46,18 +45,14 @@ function Home() {
     const [googleFormData, setGoogleFormData] = useState();
     useEffect(() => {
         // Get Google Form data
-        const fetchAndSetFormData = async () => {
-            fetch('/api/get-form')
-                .then((res) => res.json())
-                .then((data) => setGoogleFormData(data));
-        };
-
-        fetchAndSetFormData();
+        fetch('/api/get-form')
+            .then((res) => res.json())
+            .then((data) => setGoogleFormData(data));
     }, []);
 
     // TODO: Finish placeholder boxes
     // eslint-disable-next-line no-unused-vars
-    const placeholderQuestions = () => <Question />;
+    console.log(googleFormData);
 
     return (
         <>
