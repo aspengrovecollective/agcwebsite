@@ -10,6 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 // Material Kit 2 React themes
 import theme from 'assets/theme';
 import Home from 'pages/home';
+import RefLink from 'pages/referralLink/refLink';
 
 export default function App() {
     const { pathname } = useLocation();
@@ -25,6 +26,7 @@ export default function App() {
             <CssBaseline />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/link" element={<RefLink />} />
             </Routes>
         </ThemeProvider>
     );

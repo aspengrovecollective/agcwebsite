@@ -1,6 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
-const logger = require('morgan')
+const logger = require('morgan');
 const path = require('path');
 const getForm = require('./helpers/formsApiHelper');
 // const cookieParser = require('cookie-parser')
