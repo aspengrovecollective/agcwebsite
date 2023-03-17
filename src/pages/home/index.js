@@ -51,8 +51,9 @@ function Home() {
     }, []);
 
     // TODO: Finish placeholder boxes
-    // eslint-disable-next-line no-unused-vars
     console.log(googleFormData);
+    // eslint-disable-next-line no-unused-vars
+    const fffForm = <FFFForm key="test" googleFormData={googleFormData} submitForm={submitForm} />;
 
     return (
         <>
@@ -74,6 +75,7 @@ function Home() {
                     maxWidth: '100%',
                     margin: '0 auto',
                 }}
+                className="fffForm"
             >
                 {googleFormData && Object.keys(googleFormData).length !== 0 && (
                     <FFFForm googleFormData={googleFormData} submitForm={submitForm} />

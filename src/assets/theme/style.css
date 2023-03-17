@@ -30,7 +30,7 @@
     margin-bottom: 16px;
 }
 
-.formItem > div > input, .formItem > div > input ~ label {
+.formItem > div > input, .formItem > div > input ~ label, .formItem > div > .formItemTitle {
     color: #AAAAAA;
     font-size: 11pt;
     line-height: 1.5;
@@ -47,6 +47,19 @@
 
 .formItem > *:last-child {
     margin-bottom: 0 !important;
+}
+
+.formImageWrapper {
+    height: auto;
+    overflow: auto;
+}
+
+.formTitle {
+    font-weight: 400;
+    font-size: 24pt;
+    line-height: 1.25;
+    letter-spacing: 0;
+    margin-bottom: 16px;
 }
 
 .options {}
