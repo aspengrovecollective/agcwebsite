@@ -41,13 +41,16 @@ import FFFForm from 'pages/home/components/fffForm';
 import Question from 'pages/home/components/question';
 
 const submitForm = require('pages/home/helpers/submitFFFForm');
+const fffFormConfig = require('../../config/fffFormConfig.json');
 
 function Home() {
     const [googleFormData, setGoogleFormData] = useState();
     useEffect(() => {
         // Get Google Form data
         const fetchAndSetFormData = async () => {
-            fetch('/api/get-form')
+            const { formId } = fffFormConfig;
+            const queryString = `formId=${formId}`;
+            fetch(`/api/get-form?${queryString}`, { method: 'GET' })
                 .then((res) => res.json())
                 .then((data) => setGoogleFormData(data));
         };

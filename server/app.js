@@ -14,8 +14,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, 'build')));
 app.disable('etag');
 
-app.get('/api/get-form', (req, res) => {
-    res.json(getForm());
+app.get('/api/get-form', async (req, res) => {
+    const form = await getForm(req);
+    res.json(form);
 });
 app.get('*', (req, res) => {
     res.sendFile('build/index.html', { root: __dirname });
