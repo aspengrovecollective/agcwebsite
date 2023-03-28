@@ -1,9 +1,8 @@
-const path = require('path');
 const google = require('@googleapis/forms');
 
-const getForm = async (req) => {
+const getForm = async (req, keyPath) => {
     const auth = new google.auth.GoogleAuth({
-        keyFilename: path.resolve('server/private/agc-website-key.json'),
+        keyFilename: keyPath,
         scopes: ['https://www.googleapis.com/auth/forms.body.readonly'],
     });
     const authClient = await auth.getClient();

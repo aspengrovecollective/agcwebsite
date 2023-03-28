@@ -6,7 +6,10 @@ const app = require('./app');
 /**
  * Get port from environment and store in Express.
  */
-const port = 3001;
+const port = process.env.SERVER_PORT || '3001';
+
+console.log(`Server listening on port ${port}`);
+
 app.set('port', port);
 
 /**

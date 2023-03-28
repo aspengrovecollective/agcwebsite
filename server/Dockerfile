@@ -14,7 +14,6 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-# COPY ../private/agc-website-key.json ./private/. 
 
-EXPOSE 8080
+EXPOSE 3001
 CMD [ "node", "server.js" ]

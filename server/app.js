@@ -15,7 +15,8 @@ app.use(express.static(path.resolve(__dirname, 'build')));
 app.disable('etag');
 
 app.get('/api/get-form', async (req, res) => {
-    const form = await getForm(req);
+    const keyPath = path.resolve(__dirname, 'private/agc-website-key.json');
+    const form = await getForm(req, keyPath);
     res.json(form);
 });
 app.get('*', (req, res) => {
