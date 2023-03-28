@@ -3,6 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const getForm = require('./helpers/formsApiHelper');
+const { saveUrl } = require('./helpers/redisClient');
 // const cookieParser = require('cookie-parser')
 
 const app = express();
@@ -19,6 +20,17 @@ app.get('/api/get-form', async (req, res) => {
     const form = await getForm(req, keyPath);
     res.json(form);
 });
+
+app.get('/api/save-url', async (req, res) => {
+    const { url } = req.query;
+    try {
+        await saveUrl(url);
+        res.json({ success: true });
+    } catch (err) {
+        res.json({ success: false });
+    }
+});
+
 app.get('*', (req, res) => {
     res.sendFile('build/index.html', { root: __dirname });
 });
