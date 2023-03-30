@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const getForm = require('./helpers/formsApiHelper');
-const { saveUrl } = require('./helpers/redisClient');
+const saveUrl = require('./helpers/redisClient');
 // const cookieParser = require('cookie-parser')
 
 const app = express();
@@ -21,12 +21,14 @@ app.get('/api/get-form', async (req, res) => {
     res.json(form);
 });
 
-app.get('/api/save-url', async (req, res) => {
-    const { url } = req.query;
+app.post('/api/save-url', async (req, res) => {
+    const { url } = req.body;
     try {
         await saveUrl(url);
+        console.log(`Saved url to redis: ${url}`);
         res.json({ success: true });
     } catch (err) {
+        console.error(err);
         res.json({ success: false });
     }
 });
