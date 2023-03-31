@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const getForm = require('./helpers/formsApiHelper');
-const saveUrl = require('./helpers/redisClient');
+const { saveOrGetUrlAsync, getUrlAsync } = require('./helpers/redisClient');
 // const cookieParser = require('cookie-parser')
 
 const app = express();
@@ -24,9 +24,9 @@ app.get('/api/get-form', async (req, res) => {
 app.post('/api/save-url', async (req, res) => {
     const { url } = req.body;
     try {
-        await saveUrl(url);
+        const result = await saveOrGetUrlAsync(url);
         console.log(`Saved url to redis: ${url}`);
-        res.json({ success: true });
+        res.json({ success: true, result });
     } catch (err) {
         console.error(err);
         res.json({ success: false });
