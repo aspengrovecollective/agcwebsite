@@ -7,7 +7,7 @@ promisifyAll(redis);
 const redisPort = 6379; // TODO add these values to config file
 const redisHost = '127.0.0.1';
 
-const createClient = () =>
+const createClientAsync = async () =>
     redis.createClient({
         socket: {
             port: redisPort,
@@ -16,57 +16,76 @@ const createClient = () =>
     });
 
 class RedisClient {
-    _instance = null;
+    instance = null;
 
     constructor() {
-        if (this._instance == null) {
-            this._instance = createClient();
-            this._instance.on('connect', () => console.log('connect'));
-            this._instance.on('ready', () => console.log('ready'));
-            this._instance.on('error', (err) => {
-                throw new Error(err);
-            });
+        if (this.instance == null) {
+            this.instance = createClientAsync();
         }
     }
 
-    getClient() {
-        return this._instance;
+    async getAsync() {
+        const client = await this.instance;
+        
+        if (client.isOpen) return client;
+        
+        client.on('connect', () => console.log('connect'));
+        client.on('ready', () => console.log('ready'));
+        client.on('error', (err) => {
+            throw new Error(err);
+        });
+
+        if (!client.isOpen) {
+            await client.connect();
+        }
+
+        return client;
     }
 }
 
 const redisClient = new RedisClient();
 
-const getClientAsync = async () => {
-    const client = redisClient.getClient();
+// These functions should go into there own file, which specifically handles the building the ref codes and saving them to redis, with the count.
+// Or get them from redis if already exists.
+const buildRefCodeAsync = async (url) => {
+    const client = await redisClient.getAsync();
 
-    if(client.isOpen) return client;
-
-    if (!client.isOpen) {
-        await client.connect();
-    }
-
-    return client;
-};
-
-const saveOrGetUrlAsync = async (url) => {
-    const client = await getClientAsync();
     const uniqueId = uuidv4();
-    const result = await client.get(url);
+    const visitCount = 0;
+    const refCode = { url, visitCount };
+    
+    const refCodeJson = JSON.stringify(refCode);
 
-    if(result !== null) return result;
+    await client.set(uniqueId, refCodeJson);
     
-    await client.set(url, `${uniqueId}`);
-    
-    return uniqueId;
+    return refCodeJson;
 };
 
-const getUrlAsync = async (url) => {
-    const client = await getClientAsync();
-    const result = await client.get(url);
-    return result;
+const getRefCodeAsync = async (url) => {
+    const client = await redisClient.getAsync();
+    const refCodes = await client.hGetAll(url);
+
+    if (refCodes === {}) return null;
+
+    const refCode = refCodes.filter((refCode) => refCode.url === url);
+    return refCode;
+};
+
+const updateRefCodeCountAsync = async (uniqueId) => {
+    const client = await redisClient.getAsync();
+    const refCode = await client.get(uniqueId);
+
+    if(refCode == null) return null;
+
+    const { url, visitCount } = refCode;
+    const newVisitCount = visitCount + 1;
+    const updatedRefCode = JSON.stringify({ url, newVisitCount });
+    await client.set(uniqueId, updatedRefCode);
+    return newVisitCount;
 };
 
 module.exports = {
-    saveOrGetUrlAsync,
-    getUrlAsync,
+    buildRefCodeAsync,
+    getRefCodeAsync,
+    updateRefCodeCountAsync
 };

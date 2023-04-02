@@ -3,7 +3,11 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const getForm = require('./helpers/formsApiHelper');
-const { saveOrGetUrlAsync, getUrlAsync } = require('./helpers/redisClient');
+const {
+    buildRefCodeAsync,
+    getRefCodeAsync,
+    updateRefCodeCountAsync,
+} = require('./helpers/redisClient');
 // const cookieParser = require('cookie-parser')
 
 const app = express();
@@ -21,11 +25,36 @@ app.get('/api/get-form', async (req, res) => {
     res.json(form);
 });
 
-app.post('/api/save-url', async (req, res) => {
+app.post('/api/build-ref-code', async (req, res) => {
     const { url } = req.body;
     try {
-        const result = await saveOrGetUrlAsync(url);
-        console.log(`Saved url to redis: ${url}`);
+        let refCode = await getRefCodeAsync(url);
+        // check is ref codes are empty
+        if (refCode === null) {
+            refCode = await buildRefCodeAsync(url);
+            console.log(`Generated a reference code for URL: ${url}`);
+        } else {
+            console.log(`A reference code has already been generated for URL: ${url}`);
+        }
+        res.json({ success: true, result: refCode });
+    } catch (err) {
+        console.error(err);
+        res.json({ success: false });
+    }
+});
+
+app.put('/api/update-ref-code-count', async (req, res) => {
+    const { url } = req.body;
+    try {
+        const result = await updateRefCodeCountAsync(url);
+
+        if (result === null) {
+            console.warn(`No reference code found for URL: ${url}`);
+            res.json({ success: false });
+            return;
+        }
+
+        console.log(`Updated the reference code count for URL: ${url}`);
         res.json({ success: true, result });
     } catch (err) {
         console.error(err);

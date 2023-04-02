@@ -1,12 +1,12 @@
 version: '3'
 services:
-  api:
-    build: ./server/.
-    container_name: agc-api
-    ports:
-      - '3001:3001'
-    environment:
-      NODE_ENV: development
+  # api:
+  #   build: ./server/.
+  #   container_name: agc-api
+  #   ports:
+  #     - '3001:3001'
+  #   environment:
+  #     NODE_ENV: development
   
   redis_db:
     image: redis:3.2.8
