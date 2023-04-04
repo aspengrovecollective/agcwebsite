@@ -44,18 +44,18 @@ app.post('/api/build-ref-code', async (req, res) => {
 });
 
 app.put('/api/update-ref-code-count', async (req, res) => {
-    const { url } = req.body;
+    const { refCode } = req.body;
     try {
-        const result = await updateRefCodeCountAsync(url);
+        const visitCount = await updateRefCodeCountAsync(refCode);
 
-        if (result === null) {
-            console.warn(`No reference code found for URL: ${url}`);
+        if (visitCount === null) {
+            console.warn(`Reference code not found: ${refCode}`);
             res.json({ success: false });
             return;
         }
 
-        console.log(`Updated the reference code count for URL: ${url}`);
-        res.json({ success: true, result });
+        console.log(`Updated the reference code count: ${refCode}`);
+        res.json({ success: true, visitCount });
     } catch (err) {
         console.error(err);
         res.json({ success: false });
