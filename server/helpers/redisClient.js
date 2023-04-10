@@ -46,7 +46,7 @@ class RedisClient {
 const redisClient = new RedisClient();
 
 // These functions should go into there own file, which specifically handles the building of the ref codes and saving them to redis, with the count.
-// Or get them from redis if already exists.
+// Or get them from redis.
 const buildRefCodeAsync = async (url) => {
     const client = await redisClient.getAsync();
 
@@ -70,13 +70,21 @@ const getRefCodeAsync = async (url) => {
     return refCode;
 };
 
+const getRefCodeDetailsAsync = async (uniqueId) => {
+    const client = await redisClient.getAsync();
+    
+    const refCode = await client.get(uniqueId);
+
+    return refCode;
+}
+
 const updateRefCodeCountAsync = async (refCodeKey) => {
     const client = await redisClient.getAsync();
     const refCode = await client.get(refCodeKey);
 
     if(refCode == null) return null;
 
-    const { url, visitCount } = refCode;
+    const { url, visitCount } = JSON.parse(refCode);
     const newVisitCount = visitCount + 1;
     const updatedRefCode = JSON.stringify({ url, newVisitCount });
     await client.set(refCodeKey, updatedRefCode);
@@ -86,5 +94,6 @@ const updateRefCodeCountAsync = async (refCodeKey) => {
 module.exports = {
     buildRefCodeAsync,
     getRefCodeAsync,
-    updateRefCodeCountAsync
+    updateRefCodeCountAsync,
+    getRefCodeDetailsAsync,
 };

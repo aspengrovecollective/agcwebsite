@@ -7,6 +7,7 @@ const {
     buildRefCodeAsync,
     getRefCodeAsync,
     updateRefCodeCountAsync,
+    getRefCodeDetailsAsync,
 } = require('./helpers/redisClient');
 // const cookieParser = require('cookie-parser')
 
@@ -56,6 +57,24 @@ app.put('/api/update-ref-code-count', async (req, res) => {
 
         console.log(`Updated the reference code count: ${refCode}`);
         res.json({ success: true, visitCount });
+    } catch (err) {
+        console.error(err);
+        res.json({ success: false });
+    }
+});
+
+app.get('/api/get-ref-code-details', async (req, res) => {
+    const { uniqueId } = req.query;
+    try {
+        const refCode = await getRefCodeDetailsAsync(uniqueId);
+
+        if (refCode === null) {
+            console.warn(`Reference code not found for id: ${uniqueId}`);
+            res.json({ success: false });
+            return;
+        }
+
+        res.json({ success: true, refCode });
     } catch (err) {
         console.error(err);
         res.json({ success: false });
