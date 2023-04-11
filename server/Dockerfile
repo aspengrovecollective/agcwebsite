@@ -1,5 +1,9 @@
 FROM node:18
 
+# Set environment variables
+ENV REDIS_HOST=$REDIS_HOST
+ENV REDIS_PORT=$REDIS_PORT
+
 # Create app directory
 WORKDIR /usr/src/app
 
