@@ -1,5 +1,6 @@
-AGC Website
+# AGC Website
 
+## Setup
 For Dev:
 1) `git clone git@github.com:aspengrovecollective/agcwebsite.git`
 2) `npm i`
@@ -13,3 +14,6 @@ For Dev:
 
 Look through package.json for other commands.
 Look through the examples that came with the template, in the `src/` folder, to get a feel for code style and project structure.
+
+## Server Notes
+- Ensure to save the private folder with the agc-website-key.json file in the server directory.
